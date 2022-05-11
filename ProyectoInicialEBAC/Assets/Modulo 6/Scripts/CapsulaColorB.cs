@@ -2,21 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CuboColor : MonoBehaviour
+public class CapsulaColorB : MonoBehaviour
 {
-    public bool VariableCubo = true;
+    CuboColor CuboInfo;
+    EsferaColor EsferaInfo;
     Color ColorVerdadero = new Color(250f / 255f, 250f / 255f, 250f / 255f);
     Color ColorFalso = new Color(0f / 255f, 0f / 255f, 0f / 255f);
-
-    //private void Awake()
-    //{
-    //    Color Rndm = new Color(Random.value,Random.value,Random.value);
-    //    GetComponent<MeshRenderer>().material.color = Rndm;
-    //}
 
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -27,19 +23,25 @@ public class CuboColor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (VariableCubo == true)
+        CuboInfo = GameObject.Find("Cubo").GetComponent<CuboColor>();
+        Debug.LogWarning("El valor del Cubo es " + CuboInfo.VariableCubo);
+
+        EsferaInfo = GameObject.Find("Esfera").GetComponent<EsferaColor>();
+        Debug.LogWarning("El valor de la Esfera es " + EsferaInfo.VariableEsfera);
+
+
+        if (CuboInfo || EsferaInfo)
         {
             gameObject.GetComponent<MeshRenderer>().material.color = ColorVerdadero;
-            //Debug.Log("la variable del cubo era verdadera, ahora es falsa");
-            VariableCubo = false;
+            Debug.LogError("El valor es verdadero");
 
         }
         else
         {
             gameObject.GetComponent<MeshRenderer>().material.color = ColorFalso;
-            //Debug.Log("la variable del cubo era falsa, ahora es verdadera");
-            VariableCubo = true;
+            Debug.LogError("El valor es falso");
 
         }
+
     }
 }
