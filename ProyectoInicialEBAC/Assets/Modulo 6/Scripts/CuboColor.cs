@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,5 +42,10 @@ public class CuboColor : MonoBehaviour
             VariableCubo = true;
 
         }
+    }
+
+    public static implicit operator CuboColor(string v)
+    {
+        throw new NotImplementedException();
     }
 }
