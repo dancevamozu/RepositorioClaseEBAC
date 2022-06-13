@@ -51,23 +51,18 @@ public class EjerciciosdeCiclosyarreglos : MonoBehaviour
         //Ejercicio 3
 
         int[,] arregloBi = new int[2, 3] { { 1, 2, 3 }, { 4, 5, 6 } };
-        int[] arregloUni = new int[2] { 10, 20 };
-        int resultado = 0;
+        int[] arregloUni = new int[3] { 10, 11, 12 };
+        int[] resultadoArreglo = new int[arregloBi.GetLength(0)];
 
 
-            for (int k = 0; k < arregloBi.GetLength(0); k++)
+        for (int i = 0; i < arregloUni.Length; i++)
+        {
+            for (int j = 0; j < arregloBi.GetLength(0); j++)
             {
-                for (int l = 0; l < arregloBi.GetLength(1); l++)
-                {
-                    Debug.Log(arregloBi[k, l]);
-                    for (int m = 0; m < arregloUni.GetLength(0); m++)
-                    {
-                        Debug.LogWarning(arregloUni[m]);
-                        resultado = arregloBi[k, l] * arregloUni[m];
-                        Debug.LogError(resultado);
-                    }
-                }
+                resultadoArreglo[j] += (arregloBi[j, i] * arregloUni[i]);
+                Debug.LogError(resultadoArreglo[j]);
             }
+        }
 
 
     }
